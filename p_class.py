@@ -307,7 +307,7 @@ class dts:
                 max_i_index = (budgetSeq[max_i] < cumsum_cost) & (budgetSeq[max_i + 1] >= cumsum_cost)
                 propose_ratio_max_i = np.sum(np.asarray(par_dts_seq[pari].propose_ratio)[max_i_index])
                 ll_only[pari] = (par_dts_seq[pari].ll_cal(ydata, add_dts_other_mu, len(par_dts_seq[pari].costseq) - 1))
-                currents_ll[pari] = currents_ll[pari]++propose_ratio_max_i+ll_only[pari]
+                currents_ll[pari] = currents_ll[pari]+propose_ratio_max_i+ll_only[pari]
 
             ll_seqi_ratio = currents_ll-previous_ll
             propb = np.exp(ll_seqi_ratio-np.max(ll_seqi_ratio))
